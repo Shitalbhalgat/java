@@ -86,3 +86,9 @@ class MapExample1{
       
     }
 }
+for (String key : maintenanceMap.keySet()) {
+            String value = maintenanceMap.get(key);
+            if (value.equalsIgnoreCase(acType.trim())) {
+                serviceCodes.add(key);
+            }
+        }
