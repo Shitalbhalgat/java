@@ -96,7 +96,13 @@ public class Streaminjava {
    //reduce
    
    
+string result = str.stream().reduce("", (s1, s2) -> s1 + " " + s2);
+   System.out.println(result);
    
+
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   int sum = numbers.stream().reduce(0, (n1, n2) -> n1+n2); 
+   System.out.println("Sum: " + sum);
 
     
 
