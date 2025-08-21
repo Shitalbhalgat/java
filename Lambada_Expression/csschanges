@@ -1,0 +1,13 @@
+       footer {
+      position: fixed;
+      bottom: 0;
+      left:0;
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #f1f5f9;
+      margin-top: 3rem;
+      color: #4b5563;
+       font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+    
+    }
