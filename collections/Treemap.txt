@@ -1,0 +1,48 @@
+Design and implement a Word Dictionary System using TreeMap.
+
+The system should store words and their meanings in:
+
+Word → Meaning
+
+and perform the following operations:
+
+Add words with meanings
+Display dictionary in sorted order
+Search meaning using word
+Remove a word
+Display all words starting with a specific letter
+
+
+Sample Input
+Enter number of words: 3
+
+Enter word: Apple
+Enter meaning: A fruit
+
+Enter word: Ball
+Enter meaning: A toy
+
+Enter word: Cat
+Enter meaning: An animal
+
+Sample Output
+Dictionary Contents:
+
+Apple : A fruit
+Ball : A toy
+Cat : An animal
+
+Enter word to search: Ball
+Meaning: A toy
+
+Enter word to remove: Cat
+Word removed
+
+Dictionary Contents:
+
+Apple : A fruit
+Ball : A toy
+
+Enter starting letter: A
+Words starting with A:
+Apple
