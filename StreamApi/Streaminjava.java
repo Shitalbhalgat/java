@@ -1,3 +1,11 @@
+// Stream in Java
+// 1)A Stream in Java is a sequence of elements that can be processed in a functional style.
+// 2)It is a part of the java.util.stream package and provides a powerful way to perform operations on collections of data.
+// 3)Streams can be created from various data sources, such as collections, arrays, or I/O channels, and 
+//    they support a wide range of operations, including filtering, mapping, and reducing.
+// 4)A stream pipeline has: Source → Intermediate Operations → Terminal Operation
+
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -11,6 +19,7 @@ public class Streaminjava {
 
     //Stream Creation 1)Empty Stream
       Stream<String> streamEmpty = Stream.empty();
+      System.out.println("Empty Stream: " + streamEmpty);
 
     //2)Stream of Collection
         List<String> collection = Arrays.asList("a", "b", "c");
@@ -29,19 +38,21 @@ public class Streaminjava {
         List<Integer> l =List.of(1,2,34,5,6,7,70);
 
         //filter
-        System.out.println(l.stream().filter(x->x%2==0));
-         System.out.println( l.stream().filter(x->x%2==0).toList());
+          System.out.println("Filtered Stream: "+l.stream().filter(x->x%2==0));
+         System.out.println("Filtered List: "+l.stream().filter(x->x%2==0).toList());
         
-         //peek
+         //peek : The peek() method is an intermediate operation that allows you to perform an action 
+         // on each element of the stream as it is processed, without modifying the stream itself.
+         //  It is often used for debugging purposes or to perform side effects, such as logging or printing values,
+         //  while processing the stream.
        Stream<Integer> s= l.stream().filter(x->x%2==0).peek(x->System.out.println(x));
-       System.out.println(s);
        long z=l.stream().filter(x->x%2==0).peek(x->System.out.println("value of x :"+x)).count();
-       System.out.println(z);
+       System.out.println("Count: "+z);
 
 //map
        List<Integer> num = Arrays.asList(1, 2, 3, 4, 5);
        List<Integer> square = num.stream().map(n-> n * n).collect(Collectors.toList());
-    System.out.println("Original list: " + num);
+       System.out.println("Original list: " + num);
         System.out.println("Squared list: " + square);
 
         //distinct
@@ -57,10 +68,9 @@ public class Streaminjava {
       System.out.println(" List  after limit: "+a.stream().limit(3).toList());
 
       //skip
-      System.out.println(" List  after limit: "+a.stream().skip(3).toList());
+      System.out.println(" List  after skipping first 3 elements: "+a.stream().skip(3).toList());
 
     
-
       List<String> str=List.of("C","PHP","Java","C++","Python");
 
        //Terminal operation
