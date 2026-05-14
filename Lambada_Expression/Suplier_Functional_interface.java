@@ -1,3 +1,8 @@
+// Supplier Functional Interface in Java 
+// The Supplier functional interface is a part of the java.util.function package and represents a supplier of results. 
+// It has a single abstract method called get() that takes no arguments and returns a result of a specified type.
+//  The Supplier interface is often used when you want to generate or provide values without taking any input.
+
 import java.util.Date;
 import java.util.Random;
 import java.util.function.BooleanSupplier;
