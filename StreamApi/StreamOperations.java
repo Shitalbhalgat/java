@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 class Employee {
        
 	 int id;
@@ -64,6 +65,42 @@ class Employee {
 		employeeList.add(new Employee(6, "Eight", 34500.0, "Pune"));
 		employeeList.add(new Employee(9, "Nine", 11500.0, "Hyderabad"));
 	
+		// Get all employee names as list
+		System.out.println(employeeList.stream().map(emp -> emp.getName()) .toList());
+
+		// Employee Names ,salary>25000
+         System.out.println(employeeList.stream() .filter(emp -> emp.getSalary() >25000) 
+                  .map(emp -> emp.getName()) 
+				.toList());
+
+		// Get Count of employees whose salary is > 20K
+		    System.out.println(employeeList.stream() .filter(emp -> emp.getSalary() >20000)
+				.count());
+
+		// Get first 3 employee objects as a list
+        System.out.println(employeeList.stream().limit(3).toList());
+
+		//Unique ID 
+        System.out.println(employeeList.stream().map(e->e.getId()).collect(Collectors.toSet()));
+
+	    //collect employee IDs and their salaries as Map
+System.out.println( employeeList.stream().distinct().collect(Collectors.toMap(Employee::getId, 
+		                                             Employee::getSalary,(s1,s2)->s1)));
+
+		// get avg salary of each emplyoeename
+           System.out.println( employeeList.stream().collect(Collectors.groupingBy(
+			Employee::getName,
+			 Collectors.averagingDouble(Employee::getSalary))));
+
+			
+	// Summing All employees salaries 
+	System.out.println(employeeList.stream()
+			.collect(Collectors.summingDouble(Employee::getSalary)));
+
+
+	// Get Count of employees name wise 
+      System.out.println(employeeList.stream().collect(Collectors.groupingBy(e->e.getName() ,
+			 	Collectors.counting())));
 
 		}
 }
