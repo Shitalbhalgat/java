@@ -1,5 +1,9 @@
-import java.sql.*;
+// Delete a Record from Database Table
+// Syntax : delete from table_name where condition;
+// Note: If you omit the WHERE clause, all records will be deleted from the table.
 
+
+import java.sql.*;
 public class DeleteIntoDBTable {
 
     public static void main(String[] args) {
