@@ -7,16 +7,16 @@ public class SqlInjectionExample {
 
     public static void main(String[] args) {
 
-        String name ="Rahul'); DROP TABLE student; --";
+        String name ="Rahul'); DROP TABLE student; -- ";
          try {
             Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/testdb",
+                "jdbc:mysql://localhost:3306/testdb?allowMultiQueries=true",
                 "root",
                 ""
             );
 
             Statement stmt = con.createStatement();
-             String q ="INSERT INTO student(name) VALUES('"+ name + "')";
+            String q ="INSERT INTO student(id,name) VALUES(10, '"+ name + "')";
             System.out.println(q);
 
             stmt.executeUpdate(q);
@@ -33,7 +33,7 @@ public class SqlInjectionExample {
 
 // To prevent SQL injection, we can use PreparedStatement which allows us to set parameters safely without concatenating user input directly into the SQL query.
 
-        String name1 ="Rahul'); DROP TABLE student; --";
+        String name1 ="Rahul'); DROP TABLE student; -- ";
          try {
 
             Connection con = DriverManager.getConnection(
@@ -42,10 +42,11 @@ public class SqlInjectionExample {
                 ""
             );
 
-            String q ="INSERT INTO student(name) VALUES(?)";
+            String q ="INSERT INTO student(id,name) VALUES(?,?)";
 
             PreparedStatement ps =con.prepareStatement(q);
-            ps.setString(1, name1);
+            ps.setInt(1, 10);
+            ps.setString(2, name1);
             ps.executeUpdate();
             System.out.println("Inserted Safely!");
             con.close();
