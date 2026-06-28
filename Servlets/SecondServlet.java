@@ -23,5 +23,7 @@ public class SecondServlet extends HttpServlet {
         String Email =(String)context.getAttribute("Email");
 
         response.getWriter().println("Email= "+Email );
+        
+     
     }
 }
